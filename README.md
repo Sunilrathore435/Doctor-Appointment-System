@@ -22,7 +22,6 @@ The Doctor Appointment System is a user-friendly platform designed to streamline
 
 ✅ Payment Integration (Coming Soon!) 💳
 
-✅ Video Consultation Feature (Planned Update) 🎥
 
 🛠️ Tech Stack
 
@@ -34,7 +33,6 @@ The Doctor Appointment System is a user-friendly platform designed to streamline
 
 🔐 Authentication: JWT / OAuth 🔑
 
-☁ Deployment: Docker / AWS / Vercel 🏗
 
 📡 Real-time Updates: Firebase / WebSockets 📡
 
@@ -69,7 +67,6 @@ Access the application in your browser 🌐 (http://localhost:3000)
 
 🔔 Real-time Notifications & Alerts
 
-🎥 Video Consultation Feature
 
 📊 Dashboard Analytics for Doctors & Admins
 
