@@ -184,21 +184,42 @@ const doctorProfile = async (req,res)=>{
 }
 
 // API to update profile data for doctor panel
-const updateDoctorProfile = async(req,res)=>{
+// const updateDoctorProfile = async(req,res)=>{
 
-    try {
+//     try {
         
-      const {docId, fees, address, available} = req.body
+//       const {docId, fees, address, available} = req.body
 
-      await doctorModel.findByIdAndUpdate(docId , {fees,address, available})
+//       await doctorModel.findByIdAndUpdate(docId , {fees,address, available})
 
-     res.json({success:true,message:"Profile Updated"})
+//      res.json({success:true,message:"Profile Updated"})
 
-    } catch (error) {
-        console.log(error)
-        res.json({ success: false, message: error.message })
+//     }
+//      catch (error) {
+//         console.log(error)
+//         res.json({ success: false, message: error.message })
+//     }
+// }
+const updateDoctorProfile = async (req, res) => {
+  try {
+    const { docId, fees, address, available, image } = req.body;
+
+    const updatedDoc = await doctorModel.findByIdAndUpdate(
+      docId,
+      { fees, address, available, image },
+      { new: true }
+    );
+
+    if (!updatedDoc) {
+      return res.status(404).json({ success: false, message: "Doctor not found" });
     }
-}
+
+    res.json({ success: true, message: "Profile Updated", profileData: updatedDoc });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
 
 export { changeAvailability,
      doctorList,

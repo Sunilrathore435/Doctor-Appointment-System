@@ -60,7 +60,7 @@ const addDoctor = async (req, res) => {
 
   } catch (error) {
     console.log(error);
-    res.json({ success: true, message: error.message })
+    res.json({ success: false, message: error.message })
 
   }
 }
@@ -80,7 +80,7 @@ const loginAdmin = async (req, res) => {
 
   } catch (error) {
     console.log(error);
-    res.json({ success: true, message: error.message })
+    res.json({ success: false, message: error.message })
 
 
   }
