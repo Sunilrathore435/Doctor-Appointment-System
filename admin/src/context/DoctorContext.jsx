@@ -21,7 +21,7 @@ const [profileData , setProfileData] = useState(false)
 
     if (data.success) {
         setAppointments(data.appointments)
-  console.log(data.appointments)
+  //console.log(data.appointments)
   
 
    } else {
@@ -98,7 +98,7 @@ const [profileData , setProfileData] = useState(false)
      const {data} = await axios.get(backendUrl + '/api/doctor/profile',{headers:{dToken}})
      if (data.success) {
       setProfileData(data.profileData)
-      console.log(data.profileData);
+      //console.log(data.profileData);
         }
 
    } catch (error) {

@@ -19,7 +19,7 @@ const AdminContextProvider = (props) => {
             const { data } = await axios.post(backendUrl + '/api/admin/all-doctors', {}, { headers: { aToken } })
             if (data.success) {
                 setDoctors(data.doctors)
-                console.log(data.doctors)
+                //console.log(data.doctors)
 
 
             } else {
@@ -58,7 +58,7 @@ const AdminContextProvider = (props) => {
 
             if (data.success) {
                 setAppointments(data.appointments)
-                console.log(data.appointments);
+                //console.log(data.appointments);
                 
             } else {
                 toast.error(data.message)

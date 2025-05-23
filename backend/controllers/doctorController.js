@@ -85,7 +85,7 @@ const appointmentComplete = async (req, res) => {
 
         const appointmentData = await appointmentModel.findById(appointmentId)
 
-        console.log(appointmentData)
+        //console.log(appointmentData)
         if (appointmentData && appointmentData.docId === docId) {
             await appointmentModel.findByIdAndUpdate(appointmentId, { isCompleted: true })
             return res.json({ success: true, message: "Appointment Completed" })
