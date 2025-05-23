@@ -8,7 +8,7 @@ import doctorRouter from './routes/doctorRoute.js'
 import userRouter from './routes/userRoute.js'
 
 // app config
-const cors = require('cors')
+//const cors = require('cors')
 const app= express()
 const port = process.env.PORT || 4000
 connectDB()
@@ -16,7 +16,11 @@ connectCloudinary()
 
 //middlewares
 app.use(express.json())
-app.use(cors())
+//app.use(cors())
+app.use(cors({
+  origin: 'https://doctor-appointment-system-wyby.vercel.app', // allow this frontend origin
+  credentials: true // if you're sending cookies or auth headers
+}));
 
 //api endpoint
 app.use('/api/admin',adminRouter)
