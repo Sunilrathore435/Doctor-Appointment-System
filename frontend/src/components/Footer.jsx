@@ -17,7 +17,7 @@ const Footer = () => {
                 </div>
 
                 {/* ------- Center Section -------*/}
-                <div>
+                <div className=' pt-5'>
                     <p className='text-xl font-medium mb-5'>COMPANY</p>
                     <ul className='flex flex-col gap-2 text-gray-600 cursor-pointer'>
                         <NavLink to='/' >
@@ -35,7 +35,7 @@ const Footer = () => {
                 </div>
 
                 {/* ------- Right Section -------*/}
-                <div>
+                <div className=' pt-5'>
                     <p className='text-xl font-medium mb-5'>GET IN TOUCH</p>
                     <ul className='flex flex-col gap-2 text-gray-600'>
                         <li>+91 25645456214</li>
