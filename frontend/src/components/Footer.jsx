@@ -11,7 +11,7 @@ const Footer = () => {
 
                 {/* ------- Left Section -------*/}
                 <div>
-                    <img className='mb-5 w-40' src={assets.logo} alt="" />
+                    <img  className='mb-5 w-40' src={assets.logo} alt="" />
                     <p className='w-full md:w-2/3 text-gray-600 leading-6'>The Doctor Appointment System streamlines appointment booking for patients and providers, offering online scheduling, rescheduling, and reminders. Developed by the Tech-Clinic Team, it reduces wait times, minimizes errors, and enhances efficiency. This system allows doctors to focus more on patient care by automating administrative tasks. Additionally, it improves patient satisfaction through a seamless, user-friendly interface and ensures better time management for healthcare professionals.</p>
 
                 </div>
@@ -36,8 +36,8 @@ const Footer = () => {
 
                 {/* ------- Right Section -------*/}
                 <div className=' pt-8'>
-                    <p className='text-xl font-medium mb-5'>GET IN TOUCH</p>
-                    <ul className='flex flex-col gap-2 text-gray-600'>
+                    <p className='text-xl font-medium mb-5 cursor-default'>GET IN TOUCH</p>
+                    <ul className='flex flex-col gap-2 text-gray-600 cursor-default'>
                         <li>+91 25645456214</li>
                         <li>Team_Techclinic@gmail.com</li>
                     </ul>
