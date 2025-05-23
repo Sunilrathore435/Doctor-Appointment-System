@@ -16,6 +16,7 @@ connectCloudinary()
 
 //middlewares
 app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 //app.use(cors())
 app.use(cors({
   origin: 'https://doctor-appointment-system-wyby.vercel.app', // allow this frontend origin
