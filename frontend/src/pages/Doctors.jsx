@@ -19,7 +19,7 @@ const Doctors = () => {
       } else {
         setFilterDoc(doctors)
       }
-      setLoading(true)
+      setLoading(false)
     }
   }
 
