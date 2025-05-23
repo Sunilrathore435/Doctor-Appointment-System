@@ -1,25 +1,53 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
+import LoadingAnimation from '../components/LoadingAnimation'
 
 const Doctors = () => {
   const {speciality} = useParams()
   const [filterDoc,setFilterDoc]=useState([])
   const[showFilter,setShowFilter]=useState(false)
+  
   const{doctors} = useContext(AppContext)
   const navigate=useNavigate()
+   const [loading, setLoading] = useState(true)
 
-  const applyFilter=()=>{
-    if(speciality){
-      setFilterDoc(doctors.filter(doc =>doc.speciality === speciality))
+  const applyFilter = () => {
+    if (doctors && doctors.length > 0) {
+      if (speciality) {
+        setFilterDoc(doctors.filter(doc => doc.speciality === speciality))
+      } else {
+        setFilterDoc(doctors)
+      }
+      setLoading(true)
+    }
+  }
 
-    }else{
-    setFilterDoc(doctors)
-  }}
+  useEffect(() => {
+    applyFilter()
+  }, [doctors, speciality])
 
-  useEffect(()=>{
-     applyFilter();
-  },[doctors,speciality])
+  // ✅ Show loading fallback
+if (loading) {
+  // return (
+  //   <div className="flex justify-center items-center min-h-[60vh]">
+  //     <div className="w-8 h-8 bg-blue-500 rounded-full animate-ping"></div>
+  //   </div>
+  // );
+   return <LoadingAnimation />
+}
+
+  // const applyFilter=()=>{
+  //   if(speciality){
+  //     setFilterDoc(doctors.filter(doc =>doc.speciality === speciality))
+
+  //   }else{
+  //   setFilterDoc(doctors)
+  // }}
+
+  // useEffect(()=>{
+  //    applyFilter();
+  // },[doctors,speciality])
  return (
   <div>
   <p className='text-grey-600'>Browse through the doctors specialist.</p>
