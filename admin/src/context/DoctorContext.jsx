@@ -107,14 +107,33 @@ const [profileData , setProfileData] = useState(false)
    }
 
  }
+const acceptAppointment = async (appointmentId) => {
+  try {
+    const { data } = await axios.post(
+      backendUrl + '/api/doctor/appointment-accept',
+      { appointmentId },
+      { headers: { dToken } }
+    );
 
+    if (data.success) {
+      toast.success(data.message);
+      getAppointments(); // Refresh the list
+    } else {
+      toast.error(data.message);
+    }
+  } catch (error) {
+    console.log(error);
+    toast.error(error.message);
+  }
+};
     const value = {
         dToken,setDToken,
         backendUrl,
         appointments,setAppointments,getAppointments,
         completeAppointment,cancelAppointment,dashData,
         setDashData,getDashData,
-        profileData,setProfileData,getProfileData
+        profileData,setProfileData,getProfileData,
+        acceptAppointment
     }
 
     return(

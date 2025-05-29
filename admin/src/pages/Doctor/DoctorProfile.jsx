@@ -17,7 +17,8 @@ const DoctorProfile = () => {
       const updateData = {
         address: profileData.address,
         fees: profileData.fees,
-        available: profileData.available
+        available: profileData.available,
+        city: profileData.city
 }
 
    const {data} = await axios.post(backendUrl + '/api/doctor/update-profile', updateData,{headers:{dToken}})
@@ -69,6 +70,22 @@ const DoctorProfile = () => {
           <p className='text-gray-600 font-medium mt-4' >
             Appointment fee: <span className='text-gray-800' >{currency} {isEdit ? <input type="number" onChange={(e) => setProfileData(prev => ({ ...prev, fees: e.target.value }))} value={profileData.fees} /> : profileData.fees} </span>
           </p>
+          <p className='text-gray-600 font-medium mt-2'>
+  City:{" "}
+  <span className='text-gray-800'>
+    {isEdit ? (
+      <input
+        type="text"
+        value={profileData.city}
+        onChange={(e) =>
+          setProfileData((prev) => ({ ...prev, city: e.target.value }))
+        }
+      />
+    ) : (
+      profileData.city
+    )}
+  </span>
+</p>
 
           <div className='flex gap-2 py-2' >
             <p>Address:</p>

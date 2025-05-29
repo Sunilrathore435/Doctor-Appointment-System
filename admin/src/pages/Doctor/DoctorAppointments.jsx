@@ -5,7 +5,7 @@ import { assets } from '../../assets/assets'
 
 const DoctorAppointments = () => {
 
-  const {dToken, appointments , getAppointments ,cancelAppointment,completeAppointment} = useContext(DoctorContext)
+  const {dToken, appointments , getAppointments ,cancelAppointment,completeAppointment,acceptAppointment} = useContext(DoctorContext)
 
   const {calculateAge,slotDateFormat,currency} = useContext(AppContext)
 
@@ -46,14 +46,23 @@ useEffect(()=>{
           <p> {slotDateFormat(item.slotDate)}, {item.slotTime} </p>
          <p className='font-semibold'>{currency}{item.amount}</p>
          {
-          item.cancelled
-         ?<p className='text-red-400  text-xs font-medium'>Cancelled</p>
-         : item.isCompleted 
-         ?<p className='text-green-500 text-xs font-medium'>Completed</p>
-         : <div className='flex'>
-         <img onClick={()=>cancelAppointment(item._id)} className='w-10 cursor-pointer' src={assets.cancel_icon} alt="" />
-         <img onClick={()=>completeAppointment(item._id)} className='w-10 cursor-pointer' src={assets.tick_icon} alt="" />
-        </div>
+  item.cancelled ? (
+    <p className='text-red-400 text-xs font-medium'>Cancelled</p>
+  ) : item.isCompleted ? (
+    <p className='text-green-500 text-xs font-medium'>Completed</p>
+  ) : item.isAccepted ? (
+    <div className='flex'>
+      <img onClick={() => cancelAppointment(item._id)} className='w-10 cursor-pointer' src={assets.cancel_icon} alt="Cancel" />
+      <img onClick={() => completeAppointment(item._id)} className='w-10 cursor-pointer' src={assets.tick_icon} alt="Complete" />
+    </div>
+  ) : (
+    <button
+      onClick={() => acceptAppointment(item._id)}
+      className='px-3 py-1 bg-blue-500 text-white text-xs rounded hover:bg-blue-600'
+    >
+      Accept
+    </button>
+  )
 }
         
           

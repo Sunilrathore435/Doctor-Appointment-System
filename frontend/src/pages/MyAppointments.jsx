@@ -171,42 +171,57 @@ const appointmentRazorpay = async (appointmentId) =>{
 </p>
                 {/* <p className='text-sm mt-1'><span className='text-sm text-neutral-700 font-medium'>Date & Time:</span> {slotDateFormat(item.slotDate)} | {item.slotTime}</p> */}
               </div>
-              <div></div>
-              <div className='flex flex-col gap-2 justify-end'>
-                {!item.cancelled && item.payment && !item.isCompleted && (
-                  <button className='sm:min-w-48 py-2 border rounded text-stone-500 bg-indigo-50'>Paid</button>
-                )}
-                {/* {!item.cancelled && !item.payment && !item.isCompleted && !isMissedAppointment(item.slotDate, item.slotTime) && (
-  <button onClick={() => appointmentRazorpay(item._id)} className='text-sm text-stone-500 ...'>Pay Online</button>
-)} */}
+              
 
-{/* {!item.cancelled && !item.isCompleted && !isMissedAppointment(item.slotDate, item.slotTime) && (
-  <button onClick={() => cancelAppointment(item._id)} className='text-sm text-stone-500 ...'>Cancel Appointment</button>
-)} */}
-                {!item.cancelled && !item.payment && !item.isCompleted &&!isMissedAppointment(item.slotDate, item.slotTime)&& (
-                  <button onClick={() => appointmentRazorpay(item._id)} className='text-sm text-stone-500 text-center sm:min-w-48 py-2 border hover:bg-primary hover:text-white transition-all duration-300'>Pay Online</button>
-                )}
-                {!item.cancelled && !item.isCompleted &&!isMissedAppointment(item.slotDate, item.slotTime)&& (
-                  <button onClick={() => cancelAppointment(item._id)} className='text-sm text-stone-500 text-center sm:min-w-48 py-2 border hover:bg-red-600 hover:text-white transition-all duration-300'>Cancel Appointment</button>
-                )}
-                {item.isCompleted && (
-                  <button className='sm:min-w-48 py-2 border border-green-500 rounded text-green-500'>Completed</button>
-                )}
+             <div className='flex flex-col gap-2 justify-end'>
+  {/* Completed */}
+  {item.isCompleted && (
+    <button className='sm:min-w-48 py-2 border border-green-500 rounded text-green-500'>Completed</button>
+  )}
+
+  {/* Cancelled */}
+  {item.cancelled && (
+    <button className='sm:min-w-48 py-2 border border-red-500 rounded text-red-500'>Cancelled</button>
+  )}
+
+  {/* Missed */}
+  {!item.cancelled && !item.isCompleted && isMissedAppointment(item.slotDate, item.slotTime) && (
+    <button className='sm:min-w-48 py-2 border border-red-500 rounded text-red-500'>Missed</button>
+  )}
+
+  {/* Pending */}
+  {!item.cancelled && !item.isCompleted && !item.isAccepted && !isMissedAppointment(item.slotDate, item.slotTime) && (
+    <button className='sm:min-w-48 py-2 border border-yellow-500 rounded text-yellow-500 animate-pulse'>Pending</button>
+  )}
+
+  {/* Accepted & Paid */}
+  {!item.cancelled && item.isAccepted && item.payment && !item.isCompleted && (
+    <button className='sm:min-w-48 py-2 border rounded text-stone-500 bg-indigo-50'>Paid</button>
+  )}
+
+  {/* Accepted & Not Paid */}
+  {!item.cancelled && item.isAccepted && !item.payment && !item.isCompleted && !isMissedAppointment(item.slotDate, item.slotTime) && (
+    <button onClick={() => appointmentRazorpay(item._id)} className='text-sm text-stone-500 text-center sm:min-w-48 py-2 border hover:bg-primary hover:text-white transition-all duration-300'>Pay Online</button>
+  )}
+
+  {/* Cancel Button */}
+  {!item.cancelled && !item.isCompleted && !isMissedAppointment(item.slotDate, item.slotTime) && (
+    <button onClick={() => cancelAppointment(item._id)} className='text-sm text-stone-500 text-center sm:min-w-48 py-2 border hover:bg-red-600 hover:text-white transition-all duration-300'>Cancel Appointment</button>
+                 )}
+                </div>
               </div>
-            </div>
-          ))
-      ) : (
-        <div className="text-center text-gray-500 mt-10 font-extrabold  text-xl">No Appointments here</div>
-      )}
-
-      {/* Show cancelled appointments count if any */}
-      {appointments && appointments.filter(item => item.cancelled).length > 0 && (
+            ))
+        ) : (
+          <p className='text-center text-zinc-500 py-4'>No active appointments.</p>
+          
+        )}
+          {appointments && appointments.filter(item => item.cancelled).length > 0 && (
         <div className="text-center text-red-500 text-l italic font-extrabold mt-6">
           {appointments.filter(item => item.cancelled).length} Appointment{appointments.filter(item => item.cancelled).length > 1 ? 's' : ''} Cancelled.
         </div>
       )}
+      </div>
     </div>
-  </div>
   )
 }
 

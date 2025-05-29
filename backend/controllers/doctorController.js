@@ -202,11 +202,11 @@ const doctorProfile = async (req,res)=>{
 // }
 const updateDoctorProfile = async (req, res) => {
   try {
-    const { docId, fees, address, available, image } = req.body;
+    const { docId, fees, address, available, image , city } = req.body;
 
     const updatedDoc = await doctorModel.findByIdAndUpdate(
       docId,
-      { fees, address, available, image },
+      { fees, address, available, image,city },
       { new: true }
     );
 
@@ -220,6 +220,24 @@ const updateDoctorProfile = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+// Create the accept appointment API
+const appointmentAccept = async (req, res) => {
+  try {
+    const { docId, appointmentId } = req.body;
+
+    const appointmentData = await appointmentModel.findById(appointmentId);
+
+    if (appointmentData && appointmentData.docId === docId) {
+      await appointmentModel.findByIdAndUpdate(appointmentId, { isAccepted: true });
+      return res.json({ success: true, message: "Appointment Accepted" });
+    } else {
+      return res.json({ success: false, message: "Accept Failed" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
 
 export { changeAvailability,
      doctorList,
@@ -229,4 +247,5 @@ export { changeAvailability,
          appointmentComplete,
           doctorDashboard,
         updateDoctorProfile,
-    doctorProfile }
+    doctorProfile,
+appointmentAccept }

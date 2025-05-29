@@ -11,11 +11,13 @@ const addDoctor = async (req, res) => {
 
   try {
 
-    const { name, email, password, speciality, degree, experience, about, fees, address } = req.body
+    const { name, email, password, speciality, degree, experience, about, fees, address,city } = req.body
     const imageFile = req.file
-
+      
+      // console.log("Body received:", req.body)
+      
     //checking for all  data to add doctor
-    if (!name || !email || !password || !speciality || !degree || !experience || !about || !fees || !address) {
+    if (!name || !email || !password || !speciality || !degree || !experience || !about || !fees || !address || !city) {
       return res.json({ success: false, message: "Missing Details" })
     }
 
@@ -48,10 +50,12 @@ const addDoctor = async (req, res) => {
       experience,
       about,
       fees,
+      city,
       address: JSON.parse(address),
       date: Date.now()
     }
-
+    //  console.log(city);
+     
     const newDoctor = new doctorModel(doctorData)
     await newDoctor.save()
 
