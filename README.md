@@ -53,7 +53,7 @@ An intelligent and secure web-based platform for booking doctor appointments, fe
 | Deployment    | Vercel (Frontend) & Render (Backend or optional local) |
 
 ---
-###📈 Future Enhancements
+### 📈 Future Enhancements
 📬 Email & SMS notifications
 
 💬 Doctor-patient real-time chat
@@ -64,7 +64,7 @@ An intelligent and secure web-based platform for booking doctor appointments, fe
 
 ⭐ Doctor ratings and reviews
 
-###🙌 Acknowledgements
+### 🙌 Acknowledgements
 Razorpay – payment integration
 
 MongoDB Atlas – cloud DB
@@ -73,7 +73,7 @@ Vercel – frontend hosting
 
 Tailwind CSS – beautiful UI
 
-###👨‍💻 Developed By
+### 👨‍💻 Developed By
 Sunil Rathore
 B.Tech CSE – Jai Narain College of Technology, Bhopal
 
