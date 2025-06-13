@@ -53,6 +53,29 @@ An intelligent and secure web-based platform for booking doctor appointments, fe
 | Deployment    | Vercel (Frontend) & Render (Backend or optional local) |
 
 ---
+📈 Future Enhancements
+📬 Email & SMS notifications
+
+💬 Doctor-patient real-time chat
+
+📊 Admin analytics dashboard
+
+📅 Google Calendar sync
+
+⭐ Doctor ratings and reviews
+
+🙌 Acknowledgements
+Razorpay – payment integration
+
+MongoDB Atlas – cloud DB
+
+Vercel – frontend hosting
+
+Tailwind CSS – beautiful UI
+
+👨‍💻 Developed By
+Sunil Rathore
+B.Tech CSE – Jai Narain College of Technology, Bhopal
 
 ## 📁 Project Structure
 doctor-appointment/
