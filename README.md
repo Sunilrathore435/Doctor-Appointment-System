@@ -78,23 +78,23 @@ Sunil Rathore
 B.Tech CSE – Jai Narain College of Technology, Bhopal
 
 ## 📁 Project Structure
-## doctor-appointment/
+#### doctor-appointment/
 │
-# ├── 📁 admin/ # Admin Panel (React + Tailwind CSS)
+#### ├── 📁 admin/ # Admin Panel (React + Tailwind CSS)
 │ ├── components/ # UI components (Sidebar, Tables, etc.)
 │ ├── pages/ # Admin pages (Dashboard, Doctor Requests)
 │ ├── context/ # Auth context for admin
 │ ├── utils/ # Axios instance, JWT helpers
 │ └── App.js / index.js # Entry point & routing
 
-# ├── 📁 frontend/ # Patient & Doctor Interface (React + Tailwind CSS)
+#### ├── 📁 frontend/ # Patient & Doctor Interface (React + Tailwind CSS)
 │ ├── components/ # Shared UI components (Navbar, Cards, etc.)
 │ ├── pages/ # Role-based pages (Login, Book, Dashboard, etc.)
 │ ├── context/ # Auth & Global State
 │ ├── utils/ # Axios config, helpers
 │ └── App.js / index.js # Routing setup
 
-# ├── 📁 backend/ # Backend (Node.js + Express + MongoDB)
+#### ├── 📁 backend/ # Backend (Node.js + Express + MongoDB)
 │ ├── controllers/ # API logic (auth, users, doctors, admin)
 │ ├── models/ # Mongoose schemas (User, Doctor, Appointment)
 │ ├── routes/ # API route definitions
